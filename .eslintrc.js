@@ -28,8 +28,11 @@ module.exports = {
     'prettier/prettier': [
       'error',
       {
+        // 一行最多100字符，超过换行
         printWidth: 100,
+        // 行尾不用分号
         semi: false,
+        // 使用单引号
         singleQuote: true,
       },
     ],
