@@ -45,4 +45,12 @@ module.exports = {
     'react/prop-types': 0,
   },
   ignorePatterns: ['!.*.js'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.tsx', '.ts', '.js', '.json'],
+      },
+      typescript: {},
+    },
+  },
 }
