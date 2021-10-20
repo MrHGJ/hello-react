@@ -1,3 +1,7 @@
-import './app.scss'
-const root = document.querySelector('#root')
-root.innerHTML = 'hello, webpack!'
+import React from 'react'
+
+function App() {
+  return <div className='App'>Hello World2</div>
+}
+
+export default App
