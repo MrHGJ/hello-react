@@ -1,6 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const WebpackBar = require('webpackbar')
+const TerserPlugin = require('terser-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const { isDev, PROJECT_PATH } = require('../constants')
 
 const getCssLoaders = (importLoaders) => [
@@ -51,6 +54,24 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
       '@': path.resolve(__dirname, '../src'),
+    },
+  },
+  // 压缩js代码
+  optimization: {
+    minimize: !isDev,
+    minimizer: [
+      !isDev &&
+        new TerserPlugin({
+          extractComments: false,
+          terserOptions: {
+            compress: { pure_funcs: ['console.log'] },
+          },
+        }),
+      // terser
+      !isDev && new OptimizeCssAssetsPlugin(),
+    ].filter(Boolean),
+    splitChunks: {
+      // ...
     },
   },
   module: {
@@ -146,6 +167,11 @@ module.exports = {
           toType: 'dir',
         },
       ],
+    }),
+    // 显示编译速度
+    new WebpackBar({
+      name: isDev ? '正在启动' : '正在打包',
+      color: '#fa8c16',
     }),
   ],
 }
