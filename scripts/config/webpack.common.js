@@ -1,5 +1,6 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 const { isDev, PROJECT_PATH } = require('../constants')
 
 const getCssLoaders = (importLoaders) => [
@@ -113,8 +114,9 @@ module.exports = {
     ],
   },
   plugins: [
+    // 生成html文件
     new HtmlWebpackPlugin({
-      template: path.resolve(PROJECT_PATH, './public/index.html'),
+      template: path.resolve(PROJECT_PATH, './src/index.html'),
       filename: 'index.html',
       cache: false, // 特别重要：防止之后使用v6版本 copy-webpack-plugin 时代码修改一刷新页面为空问题。
       minify: isDev
@@ -133,6 +135,17 @@ module.exports = {
             minifyURLs: true,
             useShortDoctype: true,
           },
+    }),
+    // 拷贝公共静态资源
+    new CopyPlugin({
+      patterns: [
+        {
+          context: path.resolve(PROJECT_PATH, './static'),
+          from: '*',
+          to: path.resolve(PROJECT_PATH, './dist/static'),
+          toType: 'dir',
+        },
+      ],
     }),
   ],
 }
