@@ -1,16 +1,14 @@
 import React from 'react'
+import { Router } from 'react-router'
 import './app.scss'
-interface IProps {
-  name: string
-  age: number
-}
-
-function App(props: IProps) {
-  const { name, age } = props
+import { createBrowserHistory } from 'history'
+import CoreRouter from './routes'
+export const history = createBrowserHistory()
+function App() {
   return (
-    <div className='app'>
-      <span>{`Hello! I'm ${name}, ${age} years old  ..`}</span>
-    </div>
+    <Router history={history}>
+      <CoreRouter />
+    </Router>
   )
 }
 

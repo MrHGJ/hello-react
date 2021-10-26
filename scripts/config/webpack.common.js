@@ -53,7 +53,7 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.json'],
     alias: {
-      '@': path.resolve(__dirname, '../src'),
+      '@': path.resolve(PROJECT_PATH, './src'),
     },
   },
   // 压缩js代码
