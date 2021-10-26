@@ -1,49 +1,31 @@
-项目搭建参考：https://github.com/vortesnail/blog/issues/14
+## Typescript+React+Hooks 项目脚手架
 
+### 1.简单基础的脚手架；
 
-代码格式：
-需要安装以及配置如下：
-//package.json
- "devDependencies": {
-    "@commitlint/cli": "^13.2.0",
-    "@commitlint/config-conventional": "^13.2.0",
-    "@typescript-eslint/eslint-plugin": "~4.10.0",
-    "@typescript-eslint/parser": "~4.10.0",
-    "babel-eslint": "~8.2.6",
-    "eslint": "~7.16.0",
-    "eslint-config-prettier": "~7.1.0",
-    "eslint-config-standard": "~16.0.2",
-    "eslint-plugin-import": "~2.22.1",
-    "eslint-plugin-node": "~11.1.0",
-    "eslint-plugin-prettier": "~3.3.0",
-    "eslint-plugin-promise": "~4.2.1",
-    "eslint-plugin-react": "~7.21.5",
-    "eslint-plugin-react-hooks": "~4.2.0",
-    "husky": "^7.0.2",
-    "lint-staged": "^11.1.2",
-    "prettier": "^2.4.1",
-    "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-recess-order": "^2.5.0",
-    "stylelint-config-recommended-scss": "^4.3.0",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-scss": "^3.21.0",
-    "typescript": "^4.4.3"
-  },
-  "dependencies": {},
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{css,scss}": [
-      "stylelint --fix",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
-    }
-  }
+### 2.配置文件注释超级丰富;
+
+### 3.特别容易上手;
+
+## 使用
+
+```
+// 1.克隆项目
+git clone https://github.com/MrHGJ/hello-react.git
+
+// 2.下载依赖包
+npm i
+
+// 3.跑起项目
+npm run start
+```
+
+## 特色
+
+1. 配置文件注释丰富，上手简单
+2. 支持标准代码格式规范 (eslint、stylelint 及 prettier 配置)
+3. 支持 commit 提交规范 (详见.commitlintrc.js)
+4. 支持 react-router
+
+## 感谢
+
+❤️ 项目搭建参考：https://github.com/vortesnail/blog/issues/14
